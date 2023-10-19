@@ -1,7 +1,11 @@
 #!/usr/bin/env python3
 ### Date and Time Syncronization program ###
 
+#Set version
+version = str("1.0")
+
 #Import
+print("timesync, Version: " + version)
 print("Import functions...")
 import tkinter as gui
 from tkinter import ttk
@@ -16,7 +20,8 @@ def exitprogram():
 
 def aboutprogram():
     print("show About messagebox...")
-    showinfolines = ["Date/Time Syncronizer", "Developed by PalaceSoftware", "", "Version: 1.0", "", "", "This software is distributed under the MIT License."]
+    showversion = ("Version: " + version)
+    showinfolines = ["Date/Time Syncronizer", "Developed by PalaceSoftware", "", showversion, "", "", "This software is distributed under the MIT License."]
     messagebox.showinfo("About", "\n".join(showinfolines))
 
 #syncronization commands
