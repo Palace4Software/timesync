@@ -78,11 +78,11 @@ def synccustom():
         command = (customadress)
         successfulchecker = subprocess.run((command), shell=True)
         print(successfulchecker)
+        GUI2.destroy()
         if successfulchecker.returncode == 0:
             messagebox.showinfo("Succesful", "The query was successful")
         else:
             messagebox.showerror("Error", "Wrong password or process aborted")
-        GUI2.destroy()
     #Initalisation secound window
     print("Show custom sync window...")
     GUI2 = gui.Tk()
