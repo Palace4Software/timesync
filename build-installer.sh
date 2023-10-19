@@ -2,7 +2,7 @@
 
 ### Automatic setup creator for timesync ###
 
-chmod+x install-timesync.sh
+chmod +x install-timesync.sh
 
 mkdir timesync
 mv timesync.py timesync/
