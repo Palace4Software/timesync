@@ -3,8 +3,11 @@ Program to sync the time with different (preset) servers and also a custom serve
 
 
 ## The application
-There is no way to use this application without a desktop-enviroment.
-In your applications (e.g. GNOME application list, startmenu or mintmenu) should be a new application called "Time and Date Syncronization".
+In your applications (e.g. GNOME application list, Start menu, or Mint menu), there should be a new application called "Time and Date Synchronization". You can launch it by clicking on it.
+If you need a debugging-enviroment, you can start the application from the terminal by typing:
+```
+python3 /opt/timesync/timesync.py
+```
 
 ### How to use the application?
 #### Preset server
