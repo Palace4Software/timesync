@@ -7,6 +7,7 @@ chmod+x install-timesync.sh
 mkdir timesync
 mv timesync.py timesync/
 mv LICENSE timesync/
+mv README.md timesync/
 mv icon.png timesync/
 cp install-timesync.sh timesync/
 
