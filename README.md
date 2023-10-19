@@ -26,7 +26,7 @@ python3 /opt/timesync/timesync.py
 #### Custom server
 1. Start the application by clicking on the entry in your menu.
 2. Press on "Sync with custom".
-3. Enter the server or website you'd like to sync with (e.g. opensource.org) and click the "Sync" button. *(Not every website/server allows time synchronization!)*
+3. Enter the server or website you'd like to sync with (e.g. opensource.org) and click the "Sync" button. *(Not every website/server allows time synchronization! If it is not possible to sync, the time is automatically set to 0 o'clock.)*
 4. Enter your password (or the root password) and press enter.
 5. Time and date should now be synced.
 
@@ -46,3 +46,4 @@ python3 /opt/timesync/timesync.py
 
 ## Website
 * See https://github.com/PalaceSoftware/timesync for updates and informations
+* See https://github.com/PalaceSoftware/timesync/commits/main for changelog
