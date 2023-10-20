@@ -2,7 +2,7 @@
 ### Date and Time Syncronization program ###
 
 #Set version
-version = str("1.0")
+version = str("1.0.1")
 
 #Import
 print("timesync, Version: " + version)
