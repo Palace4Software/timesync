@@ -41,7 +41,7 @@ python3 /opt/timesync/timesync.py
 
 ### Compatiblity
 * The installer and the build-setup is written for Debian GNU/Linux or Linux distributions based on it.
-* You need python3, python3-tk (Tkinter) in version 3.11.2 (or higher) to run the program. Also the packages pkexec, wget and sed. These are downloaded automatically during installation.
+* You need python3 and python3-tk (Tkinter) in version 3.9.0 (or higher) to run the program. Also the packages pkexec, wget and sed. These are downloaded automatically during installation.
 
 
 ## Website
