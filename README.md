@@ -1,13 +1,14 @@
 # timesync
-Program to sync the time with different (preset) servers and also a custom server function.
+Program to sync the time with different (preset) servers and also a custom server function. Written for Debian GNU/Linux and systems they based on it. 
 
 
 ## The application
 ### How to install the application?
-1. Download "ts-ressources" and "install-timesync.sh" from the Releases-section.
+1. Download "ts-ressources-{version}" and "install-timesync-{version}.sh" from the Releases-section.
 2. Start the terminal in the Downloads folder.
-3. Type ``` chmod +x install-timesync.sh ``` and press enter.
-4. Type ``` sudo ./install-timesync.sh ``` and follow the installation instructions.
+3. Type ``` chmod +x install-timesync-{version}.sh ``` and press enter.
+4. Type ``` sudo ./install-timesync-{version}.sh ``` and follow the installation instructions.
+    - _You have to replace "{version}" with the version you downloaded (for example "install-timesync-1.1.0.sh")._
 
 ### How to start the application?
 In your applications (e.g. GNOME application list, Start menu, or Mint menu), there should be a new application called "Time and Date Synchronization". You can launch it by clicking on it.
@@ -34,7 +35,7 @@ python3 /opt/timesync/timesync.py
 ## Building
 ### How to build the installer?
 1. Download the timesync repository (see website below) and extract all the files.
-2. Install the package "zip" (with ``` sudo apt install zip ```)
+2. Install the packages "zip" and "cat" (with ``` sudo apt install zip cat ```) _The build-installer.sh will **not** download anything by itself!_
 3. Run the "build-installer.sh" script.
 4. Now you got a new folder, called "installer". Here you can find the install-timesync.sh and the ts-ressources archive.
 5. This files have to be in the same folder. Run the "install-timesync.sh" program to install or uninstall the program.
