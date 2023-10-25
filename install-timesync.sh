@@ -1,5 +1,9 @@
 #!/bin/bash
 ### Setup for timesync program ###
+
+# release-version (important!)
+ver="1.1.0"
+
 if [[ $EUID -ne 0 ]]; then
    echo "The installation/uninstallation must be run as root. Aborting..." 
    exit 1
@@ -23,10 +27,10 @@ if [ -e "/opt/timesync/isinstalled.check" ]; then
 fi
 
 echo "Timesync is not installed. Checking resources archive..."
-if [ -e "ts-ressources" ]; then
+if [ -e "ts-ressources-$ver" ]; then
    echo "Archive found."
 else
-   echo "The ressources archive cannot be found. Please be sure, that the file is called 'ts-ressources' and that you don't deleted it."
+   echo "The ressources archive cannot be found. Please be sure, that the file is called 'ts-ressources-$ver' and that you don't deleted it."
    exit 2
 fi
 echo "Dependencies will be downloaded..."
@@ -34,7 +38,7 @@ apt install python3 python3-tk pkexec unzip wget sed -y
 echo "Dependencies downloaded."
 echo
 echo "Prepairing ressources archive..."
-unzip -o ts-ressources
+unzip -o ts-ressources-$ver
 echo "Install timesync to /opt/timesync/ ..."
 mv timesync /opt/
 mv timesync.desktop /usr/share/applications/
