@@ -12,11 +12,11 @@ mv LICENSE timesync/
 mv README.md timesync/
 mv icon.png timesync/
 mv version.txt timesync/
-cp install-timesync.sh timesync/
+cp install-timesync.sh timesync/install-timesync-$version.sh
 
 zip -r ts-ressources.zip timesync/
 zip ts-ressources.zip timesync.desktop
 mv ts-ressources.zip ts-ressources
 
 mkdir installer
-mv ts-ressources installer/ts-ressources-$version && mv install-timesync.sh installer/
+mv ts-ressources installer/ts-ressources-$version && mv install-timesync.sh installer/install-timesync-$version.sh
