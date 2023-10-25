@@ -1,16 +1,21 @@
 #!/usr/bin/env python3
 ### Date and Time Syncronization program ###
 
-#Set version
-version = str("1.0.1")
-
 #Import
-print("timesync, Version: " + version)
 print("Import functions...")
+import os
 import tkinter as gui
 from tkinter import ttk
 from tkinter import messagebox
 import subprocess
+print("Import finished.")
+
+#Set version (show it in debugging mode)
+run_path = os.path.abspath(os.path.dirname(__file__)) # get directory of current file (without os.path.dirname it would be just the current file)
+print("Application is running in", run_path)
+version = open(run_path + "/version.txt", "r")
+version = version.readline()
+print("timesync version", version)
 
 #general commands
 print("Load general commands...")
@@ -23,18 +28,21 @@ def aboutprogram():
     showversion = ("Version: " + version)
     showinfolines = ["Date/Time Syncronizer", "Developed by PalaceSoftware", "", showversion, "", "", "This software is distributed under the MIT License."]
     messagebox.showinfo("About", "\n".join(showinfolines))
+print("General commands loaded.")
 
 #syncronization commands
-print("Load syncroization commands...")
+print("Load syncronization commands...")
 def syncdebian():
     print("Sync with debian.org...")
     command = '''pkexec date -s "$(wget --method=HEAD -qSO- --max-redirect=0 debian.org 2>&1 | sed -n 's/^ *Date: *//p')"'''
     successfulchecker = subprocess.run((command), shell=True)
     print(successfulchecker)
     if successfulchecker.returncode == 0:
-        messagebox.showinfo("Succesful", "The query was successful")
+        messagebox.showinfo("Successful", "The query was successful")
+        print("The query was succesful")
     else:
         messagebox.showerror("Error", "Wrong password or process aborted")
+        print("Error - Wrong password or process aborted")
 
 def synclinux():
     print("Sync with kernel.org...")
@@ -42,9 +50,11 @@ def synclinux():
     successfulchecker = subprocess.run((command), shell=True)
     print(successfulchecker)
     if successfulchecker.returncode == 0:
-        messagebox.showinfo("Succesful", "The query was successful")
+        messagebox.showinfo("Successful", "The query was successful")
+        print("The query was succesful")
     else:
         messagebox.showerror("Error", "Wrong password or process aborted")
+        print("Error - Wrong password or process aborted")
 
 def syncduck():
     print("Sync with duckduckgo.com...")
@@ -52,9 +62,11 @@ def syncduck():
     successfulchecker = subprocess.run((command), shell=True)
     print(successfulchecker)
     if successfulchecker.returncode == 0:
-        messagebox.showinfo("Succesful", "The query was successful")
+        messagebox.showinfo("Successful", "The query was successful")
+        print("The query was succesful")
     else:
         messagebox.showerror("Error", "Wrong password or process aborted")
+        print("Error - Wrong password or process aborted")
 
 def syncgoogle():
     print("Sync with google.com...")
@@ -62,9 +74,11 @@ def syncgoogle():
     successfulchecker = subprocess.run((command), shell=True)
     print(successfulchecker)
     if successfulchecker.returncode == 0:
-        messagebox.showinfo("Succesful", "The query was successful")
+        messagebox.showinfo("Successful", "The query was successful")
+        print("The query was succesful")
     else:
         messagebox.showerror("Error", "Wrong password or process aborted")
+        print("Error - Wrong password or process aborted")
 
 def synccustom():
     #syncstart (see button command down)
@@ -80,10 +94,12 @@ def synccustom():
         print(successfulchecker)
         GUI2.destroy()
         if successfulchecker.returncode == 0:
-            messagebox.showinfo("Succesful", "The query was successful")
+            messagebox.showinfo("Successful", "The query was successful")
+            print("The query was succesful")
         else:
             messagebox.showerror("Error", "Wrong password or process aborted")
-    #Initalisation secound window
+            print("Error - Wrong password or process aborted")
+    #Initalisation second window
     print("Show custom sync window...")
     GUI2 = gui.Tk()
     GUI2.title("Custom sync")
@@ -96,6 +112,8 @@ def synccustom():
     gui.Label(GUI2).pack(expand=True, fill="x")
     gui.Button(GUI2, text="Sync", command=syncstart).pack()
     gui.Label(GUI2).pack(expand=True, fill="x")
+    print("Buttons and spaces created.")
+print("Syncronization commands loaded.")
 
 #Initalisation of window
 print("Initalize main program...")
@@ -150,5 +168,8 @@ button3.pack(side="left")
 print("Set space between subbuttons and end...")
 spaceholder4 = gui.Label(GUI)
 spaceholder4.pack(expand=True, fill="x")
+
+print("Main window successfully loaded.")
+
 
 GUI.mainloop()
