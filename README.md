@@ -14,7 +14,7 @@ Program to sync the time with different (preset) servers and also a custom serve
 In your applications (e.g. GNOME application list, Start menu, or Mint menu), there should be a new application called "Time and Date Synchronization". You can launch it by clicking on it.
 If you need a debugging-enviroment, you can start the application from the terminal by typing:
 ```
-python3 /opt/timesync/timesync.py
+/opt/timesync/timesync
 ```
 
 ### How to use the application?
@@ -37,14 +37,14 @@ python3 /opt/timesync/timesync.py
 1. Download the timesync repository (see website below) and extract all the files.
 2. Install the packages "zip" and "cat" (with ``` sudo apt install zip cat ```) _The build-installer.sh will **not** download anything by itself!_
 3. Run the "build-installer.sh" script.
-4. Now you got a new folder, called "installer". Here you can find the install-timesync.sh and the ts-ressources archive.
-5. This files have to be in the same folder. Run the "install-timesync.sh" program to install or uninstall the program.
+4. Now you got a new folder, called "installer". Here you can find the install-timesync-{version}.sh and the ts-ressources-{version} archive.
+5. This files have to be in the same folder. Run the "install-timesync-{version}.sh" program to install or uninstall the program.
 
 ### Compatiblity
 * The installer and the build-setup is written for Debian GNU/Linux or Linux distributions based on it.
-* You need python3 and python3-tk (Tkinter) in version 3.9.0 (or higher) to run the program. Also the packages pkexec, wget and sed. These are downloaded automatically during installation.
+* You need python3 and python3-tk (Tkinter) in version 3.9.0 (or higher) to run the program. Also the packages python3-platformdirs, pkexec, wget and sed. These are downloaded automatically during installation.
 
 
 ## Website
-* See https://github.com/PalaceSoftware/timesync for updates and informations
-* See https://github.com/PalaceSoftware/timesync/commits/main for changelog
+* See https://github.com/Palace4Software/timesync for updates and informations
+* See https://github.com/Palace4Software/timesync/commits/main for changelog
