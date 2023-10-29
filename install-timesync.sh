@@ -43,7 +43,7 @@ echo "Install timesync to /opt/timesync/ ..."
 mv timesync /opt/
 mv timesync.desktop /usr/share/applications/
 chmod +x /opt/timesync/timesync.py
-chmod +x /opt/timesync/install-timesync.sh
+chmod +x /opt/timesync/install-timesync-$ver.sh
 echo "
 DO NOT DELETE THIS FILE!
 
