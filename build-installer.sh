@@ -7,7 +7,8 @@ version=$(cat version.txt)
 chmod +x install-timesync.sh
 
 mkdir timesync
-mv timesync.py timesync/
+mv timesync.py timesync/timesync
+mv languagesetup.py timesync/
 mv LICENSE timesync/
 mv README.md timesync/
 mv icon.png timesync/
