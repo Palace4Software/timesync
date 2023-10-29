@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Time and Date Syncronization
 Comment=Program to sync the time with different (preset) servers and also a custom server function.
-Exec=/opt/timesync/timesync.py
+Exec=/opt/timesync/timesync
 Icon=/opt/timesync/icon.png
 Terminal=false
 Type=Application
