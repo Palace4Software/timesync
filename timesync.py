@@ -8,14 +8,41 @@ import tkinter as gui
 from tkinter import ttk
 from tkinter import messagebox
 import subprocess
+import platformdirs
+import languagesetup # import local file "languagesetup.py"
 print("Import finished.")
 
-#Set version (show it in debugging mode)
+#Get run_path and config-folder (create config-folder if not exist)
 run_path = os.path.abspath(os.path.dirname(__file__)) # get directory of current file (without os.path.dirname it would be just the current file)
+
+config_path = platformdirs.user_config_dir("timesync")
+configexist = os.path.isdir(config_path)
+if not configexist == True:
+    os.makedirs(config_path)
+
+#Set version (show it in debugging mode)
 print("Application is running in", run_path)
 version = open(run_path + "/version.txt", "r")
 version = version.readline()
 print("timesync version", version)
+
+#language
+print("Testing for language...")
+configexist = os.path.isfile(config_path + "/language.cfg")
+if not configexist == True:
+    with open(config_path + "/language.cfg", "w") as langcfg:
+        print("None", file=langcfg) # create language.cfg if not exist and write a 0 in it
+        print("", file=langcfg)
+language = open(config_path + "/language.cfg", "r")
+language = language.readline()
+language = language.replace("\n", "") # remove empty line(s) from the variable, because "if language == 0 [...]" does not work otherwise
+if language == "None":
+    languagesetup.main()
+elif language == "EN":
+    language = str("1")
+elif language == "DE":
+    language = str("2")
+print("Language:", language, "\n 0 = None \n 1 = English \n 2 = German \n")
 
 #general commands
 print("Load general commands...")
@@ -26,7 +53,7 @@ def exitprogram():
 def aboutprogram():
     print("show About messagebox...")
     showversion = ("Version: " + version)
-    showinfolines = ["Date/Time Syncronizer", "Developed by PalaceSoftware", "", showversion, "", "", "This software is distributed under the MIT License."]
+    showinfolines = ["Date/Time Syncronizer", "Developed by Palace4Software", "", showversion, "", "", "This software is distributed under the MIT License."]
     messagebox.showinfo("About", "\n".join(showinfolines))
 print("General commands loaded.")
 
