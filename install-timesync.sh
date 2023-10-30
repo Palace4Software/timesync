@@ -2,7 +2,7 @@
 ### Setup for timesync program ###
 
 # release-version (important!)
-ver="1.1.0"
+ver="2.0.0-beta1"
 
 if [[ $EUID -ne 0 ]]; then
    echo "The installation/uninstallation must be run as root. Aborting..." 
@@ -42,7 +42,7 @@ unzip -o ts-ressources-$ver
 echo "Install timesync to /opt/timesync/ ..."
 mv timesync /opt/
 mv timesync.desktop /usr/share/applications/
-chmod +x /opt/timesync/timesync.py
+chmod +x /opt/timesync/timesync
 chmod +x /opt/timesync/install-timesync-$ver.sh
 echo "
 DO NOT DELETE THIS FILE!
