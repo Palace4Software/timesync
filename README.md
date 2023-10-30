@@ -11,11 +11,8 @@ Program to sync the time with different (preset) servers and also a custom serve
     - _You have to replace "{version}" with the version you downloaded (for example "install-timesync-1.1.0.sh")._
 
 ### How to start the application?
-In your applications (e.g. GNOME application list, Start menu, or Mint menu), there should be a new application called "Time and Date Synchronization". You can launch it by clicking on it.
-If you need a debugging-enviroment, you can start the application from the terminal by typing:
-```
-/opt/timesync/timesync
-```
+* In your applications (e.g. GNOME application list, Start menu, or Mint menu), there should be a new application called "Time and Date Synchronization". You can launch it by clicking on it.
+* If you need a debugging-enviroment, you can start the application from the terminal by typing: ``` timesync ```
 
 ### How to use the application?
 #### Preset server
@@ -34,7 +31,7 @@ If you need a debugging-enviroment, you can start the application from the termi
 
 ## Building
 ### How to build the installer?
-1. Download the timesync repository (see website below) and extract all the files.
+1. Download the timesync repository (see website below) and extract all the files. (Maybe you should download the source-code from the release-section, because the raw repository can contain unstable features and code.)
 2. Install the packages "zip" and "cat" (with ``` sudo apt install zip cat ```) _The build-installer.sh will **not** download anything by itself!_
 3. Run the "build-installer.sh" script.
 4. Now you got a new folder, called "installer". Here you can find the install-timesync-{version}.sh and the ts-ressources-{version} archive.
@@ -42,7 +39,7 @@ If you need a debugging-enviroment, you can start the application from the termi
 
 ### Compatiblity
 * The installer and the build-setup is written for Debian GNU/Linux or Linux distributions based on it.
-* You need python3 and python3-tk (Tkinter) in version 3.9.0 (or higher) to run the program. Also the packages python3-platformdirs, pkexec, wget and sed. These are downloaded automatically during installation.
+* You need python3 and python3-tk (Tkinter) in version 3.10.0 (or higher) to run the program. Also the packages python3-platformdirs, pkexec, wget and sed. These are downloaded automatically during installation.
 
 
 ## Website
