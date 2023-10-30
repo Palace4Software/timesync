@@ -1,6 +1,8 @@
 [Desktop Entry]
-Name=Time and Date Syncronization
+Name=Date and Time Syncronization
+Name[de]=Datum und Uhrzeit Syncronisierer
 Comment=Program to sync the time with different (preset) servers and also a custom server function.
+Comment[de]=Programm zum Synchronisieren der Uhrzeit mit verschiedenen (voreingestellten) Servern und mit einer benutzerdefinierten Serverfunktion.
 Exec=/opt/timesync/timesync
 Icon=/opt/timesync/icon.png
 Terminal=false

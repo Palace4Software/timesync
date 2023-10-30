@@ -22,6 +22,7 @@ if not configexist == True:
 
 #Set version (show it in debugging mode)
 print("Application is running in", run_path)
+print("Configuration will be saved in", config_path)
 version = open(run_path + "/version.txt", "r")
 version = version.readline()
 print("timesync version", version)
@@ -42,19 +43,43 @@ elif language == "EN":
     language = str("1")
 elif language == "DE":
     language = str("2")
-print("Language:", language, "\n 0 = None \n 1 = English \n 2 = German \n")
+else:
+    print("Language Error! Language could not be detectet!")
+    exit()
+print("Language:", language, "\n 1 = English \n 2 = German \n")
 
 #general commands
 print("Load general commands...")
 def exitprogram():
-    print("Exit program...")
+    # print("Exit program...") # don't have to be here anymore, because after GUI.mainloop() is already the print command
     GUI.destroy()
 
 def aboutprogram():
     print("show About messagebox...")
     showversion = ("Version: " + version)
-    showinfolines = ["Date/Time Syncronizer", "Developed by Palace4Software", "", showversion, "", "", "This software is distributed under the MIT License."]
-    messagebox.showinfo("About", "\n".join(showinfolines))
+    if language == "1" or language == "None":
+        showinfolines = ["Date/Time Syncronizer", "Developed by Palace4Software", "", showversion, "", "", "This software is distributed under the MIT License."]
+        messagebox.showinfo("About", "\n".join(showinfolines))
+    if language == "2":
+        showinfolines = ["Datum & Uhrzeit Syncronisierer", "Entwickelt von Palace4Software", "", showversion, "", "", "Diese Software unterliegt der MIT-Lizenz."]
+        messagebox.showinfo("Über das Programm", "\n".join(showinfolines))
+
+def syncfin(successfulchecker): #Messagebox after syncronization (with multilanguagesupport)
+    if successfulchecker.returncode == 0:
+        if language == "1" or language == "None":
+            messagebox.showinfo("Successful", "The query was successful")
+        if language == "2":
+            messagebox.showinfo("Erfolgreich", "Die Abfrage war erfolgreich")
+        print("The query was succesful")
+    else:
+        if language == "1" or language == "None":
+            messagebox.showerror("Error", "Wrong password or process aborted")
+        if language == "2":
+            messagebox.showerror("Fehler", "Falsches Kennwort oder Prozess abgebrochen")
+        print("Error - Wrong password or process aborted")
+
+def changelang():
+    languagesetup.main()
 print("General commands loaded.")
 
 #syncronization commands
@@ -64,48 +89,28 @@ def syncdebian():
     command = '''pkexec date -s "$(wget --method=HEAD -qSO- --max-redirect=0 debian.org 2>&1 | sed -n 's/^ *Date: *//p')"'''
     successfulchecker = subprocess.run((command), shell=True)
     print(successfulchecker)
-    if successfulchecker.returncode == 0:
-        messagebox.showinfo("Successful", "The query was successful")
-        print("The query was succesful")
-    else:
-        messagebox.showerror("Error", "Wrong password or process aborted")
-        print("Error - Wrong password or process aborted")
+    syncfin(successfulchecker)
 
 def synclinux():
     print("Sync with kernel.org...")
     command = '''pkexec date -s "$(wget --method=HEAD -qSO- --max-redirect=0 kernel.org 2>&1 | sed -n 's/^ *Date: *//p')"'''
     successfulchecker = subprocess.run((command), shell=True)
     print(successfulchecker)
-    if successfulchecker.returncode == 0:
-        messagebox.showinfo("Successful", "The query was successful")
-        print("The query was succesful")
-    else:
-        messagebox.showerror("Error", "Wrong password or process aborted")
-        print("Error - Wrong password or process aborted")
+    syncfin(successfulchecker)
 
 def syncduck():
     print("Sync with duckduckgo.com...")
     command = '''pkexec date -s "$(wget --method=HEAD -qSO- --max-redirect=0 duckduckgo.com 2>&1 | sed -n 's/^ *Date: *//p')"'''
     successfulchecker = subprocess.run((command), shell=True)
     print(successfulchecker)
-    if successfulchecker.returncode == 0:
-        messagebox.showinfo("Successful", "The query was successful")
-        print("The query was succesful")
-    else:
-        messagebox.showerror("Error", "Wrong password or process aborted")
-        print("Error - Wrong password or process aborted")
+    syncfin(successfulchecker)
 
 def syncgoogle():
     print("Sync with google.com...")
     command = '''pkexec date -s "$(wget --method=HEAD -qSO- --max-redirect=0 google.com 2>&1 | sed -n 's/^ *Date: *//p')"'''
     successfulchecker = subprocess.run((command), shell=True)
     print(successfulchecker)
-    if successfulchecker.returncode == 0:
-        messagebox.showinfo("Successful", "The query was successful")
-        print("The query was succesful")
-    else:
-        messagebox.showerror("Error", "Wrong password or process aborted")
-        print("Error - Wrong password or process aborted")
+    syncfin(successfulchecker)
 
 def synccustom():
     #syncstart (see button command down)
@@ -115,17 +120,15 @@ def synccustom():
         global customadress
         commandcalc = inputfield.get()
         print(commandcalc)
+        with open(config_path + "/lastcustom.cfg", "w") as lastcustom:
+            print(commandcalc, file=lastcustom)
+            print("", file=lastcustom)
         customadress = ('''pkexec date -s "$(wget --method=HEAD -qSO- --max-redirect=0 ''' + commandcalc + ''' 2>&1 | sed -n 's/^ *Date: *//p')"''')
         command = (customadress)
         successfulchecker = subprocess.run((command), shell=True)
         print(successfulchecker)
         GUI2.destroy()
-        if successfulchecker.returncode == 0:
-            messagebox.showinfo("Successful", "The query was successful")
-            print("The query was succesful")
-        else:
-            messagebox.showerror("Error", "Wrong password or process aborted")
-            print("Error - Wrong password or process aborted")
+        syncfin(successfulchecker)
     #Initalisation second window
     print("Show custom sync window...")
     GUI2 = gui.Tk()
@@ -134,10 +137,28 @@ def synccustom():
     #Button and space
     print("Set buttons of custom sync window...")
     gui.Label(GUI2).pack(expand=True, fill="x")
+
+    #create lastcustom.cfg if not exist and read from it
+    configexist = os.path.isfile(config_path + "/lastcustom.cfg")
+    if not configexist == True:
+        with open(config_path + "/lastcustom.cfg", "w") as lastcustom:
+            print("Enter webadress", file=lastcustom)
+            print("", file=lastcustom)
+    presetinput = open(config_path + "/lastcustom.cfg", "r")
+    presetinput = presetinput.readline()
+    presetinput = presetinput.replace("\n", "")
+    if language == "2" and presetinput == "Enter webadress": #language for preset entry in inputfield
+        presetinput = "Webadresse eingeben"
+    
     inputfield = gui.Entry(GUI2) #cannot be used with .pack(expand=True, fill="x")
     inputfield.pack(expand=True, fill="x")
+    inputfield.insert(0, presetinput) #insert lastcustom.cfg (or default entry) into inputfield
+
     gui.Label(GUI2).pack(expand=True, fill="x")
-    gui.Button(GUI2, text="Sync", command=syncstart).pack()
+    syncbutton = gui.Button(GUI2, text="Sync", command=syncstart)
+    syncbutton.pack()
+    if language == "2": #language for button
+        syncbutton.config(text="Syncronisieren")
     gui.Label(GUI2).pack(expand=True, fill="x")
     print("Buttons and spaces created.")
 print("Syncronization commands loaded.")
@@ -185,11 +206,14 @@ spaceholder3.pack(expand=True, fill="both")
 
 #Buttons (Exit, About)
 print("Set About button...")
-button2 = ttk.Button(GUI, text="About", command=aboutprogram)
-button2.pack(side="right")
-print("Set Exit button...")
-button3 = ttk.Button(GUI, text="Exit", command=exitprogram)
-button3.pack(side="left")
+button7 = ttk.Button(GUI, text="About", command=aboutprogram)
+button7.pack(side="left")
+print("Set Exit button...") #must be set before button7
+button8 = ttk.Button(GUI, text="Exit", command=exitprogram)
+button8.pack(side="right")
+print("Set Change language button...")
+button6 = ttk.Button(GUI, text="Change language", command=changelang)
+button6.pack(side="top")
 
 #Space between subbuttons and end
 print("Set space between subbuttons and end...")
@@ -198,5 +222,27 @@ spaceholder4.pack(expand=True, fill="x")
 
 print("Main window successfully loaded.")
 
+#Different language text (sub windows have they own lanuguageconfig)
+if language != "1":
+    print("Change the display to different language:", language)
+
+if language == "2":
+    GUI.title("Datum/Uhrzeit Syncronisierer")
+
+    headline.config(text="Datum & Uhrzeit Syncronisierer")
+
+    button1.config(text="Mit Debian.org syncronisieren")
+    button2.config(text="Mit Linux (Kernel.org) syncronisieren")
+    button3.config(text="Mit DuckDuckGo.com syncronisieren")
+    button4.config(text="Mit Google.com syncronisieren")
+    button5.config(text="Manuell syncronisieren")
+
+    button6.config(text="Sprache ändern")
+    button7.config(text="Über")
+    button8.config(text="Beenden")
+
+if language != "1":
+    print("Language loaded.")
 
 GUI.mainloop()
+print("Exit program...")
