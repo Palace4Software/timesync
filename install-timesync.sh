@@ -38,7 +38,7 @@ else
    exit 2
 fi
 echo "Dependencies will be downloaded..."
-apt install python3 python3-tk pkexec unzip wget sed -y
+apt install python3 python3-tk python3-platformdirs pkexec unzip wget sed -y
 echo "Dependencies downloaded."
 echo
 echo "Prepairing ressources archive..."
