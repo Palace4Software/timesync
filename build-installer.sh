@@ -7,17 +7,16 @@ version=$(cat version.txt)
 chmod +x install-timesync.sh
 
 mkdir timesync
-mv timesync.py timesync/timesync
-mv languagesetup.py timesync/
-mv LICENSE timesync/
-mv README.md timesync/
-mv icon.png timesync/
-mv version.txt timesync/
+cp application/timesync.py timesync/timesync
+cp application/languagesetup.py timesync/
+cp LICENSE timesync/
+cp README.md timesync/
+cp version.txt timesync/
 cp install-timesync.sh timesync/install-timesync-$version.sh
 
 zip -r ts-ressources.zip timesync/
 zip ts-ressources.zip timesync.desktop
-mv ts-ressources.zip ts-ressources
+zip ts-ressources.zip icon.png
 
 mkdir installer
-mv ts-ressources installer/ts-ressources-$version && mv install-timesync.sh installer/install-timesync-$version.sh
+mv ts-ressources.zip installer/ts-ressources-$version && cp install-timesync.sh installer/install-timesync-$version.sh
