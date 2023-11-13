@@ -29,7 +29,8 @@ chmod 755 deb/DEBIAN
 
 # build
 dpkg-deb --build -Zxz deb
-mkdir installer && mv deb.deb installer/timesync-$version.deb
+mkdir installer
+mv deb.deb installer/timesync-$version.deb
 
 #clearup
 rm -r deb/usr
