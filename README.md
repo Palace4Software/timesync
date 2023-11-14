@@ -1,9 +1,7 @@
 # timesync
 Program to sync the time with different (preset) servers and also a custom server function. Written for Debian GNU/Linux and systems they based on it. 
 
-<div>
-    <center><img src="screenshot.png"></center>
-</div>
+![Screenshot](screenshot.png)
 
 ## The application
 ### How to install the application?
@@ -18,15 +16,15 @@ Program to sync the time with different (preset) servers and also a custom serve
 1. Download "timesync-{version}.deb" from the Releases-section.
 2. Start the terminal.
 3. Type ``` sudo apt install /Downloads/timesync-{version}.deb ```
-4. Install the application.
     - _You have to replace "{version}" with the version you downloaded (for example "install-timesync-1.1.0.sh")._
 
 #### Method 3 - Manual installation
-1. Download "ts-ressources-{version}" and "install-timesync-{version}.sh" from the Releases-section.
+1. Download "timesync-manualsetup-{version}.tar.gz" from the Releases-section.
 2. Start the terminal.
-3. Type ``` chmod +x ./Downloads/install-timesync-{version}.sh ``` and press enter.
-4. Type ``` sudo ./Downloads/install-timesync-{version}.sh ``` and follow the installation instructions.
-    - _You have to replace "{version}" with the version you downloaded (for example "install-timesync-1.1.0.sh")._
+3. Extract the archive (``` tar -xzvf ./Downloads/timesync-manualsetup-{version}.tar.gz ```).
+4. Type ``` chmod +x ./install-timesync-{version}.sh ``` and press enter.
+5. Type ``` sudo ./install-timesync-{version}.sh ``` and follow the installation instructions.
+    - _You have to replace "{version}" with the version you downloaded (for example "install-timesync-1.1.0.s
 
 
 ### How to start the application?
@@ -60,11 +58,10 @@ Program to sync the time with different (preset) servers and also a custom serve
 
 #### Method 2 - Build the Manual installer
 1. Download the timesync repository (see website below) and extract all the files. (Maybe you should download the source-code from the release-section, because the raw repository can contain unstable features and code.)
-2. Install the packages "zip" and "cat" (with ``` sudo apt install zip cat ```) _The build-installer.sh will **not** download anything by itself!_
+2. Install the packages "zip" and "cat" (with ``` sudo apt install zip tar cat ```) _The build-installer.sh will **not** download anything by itself!_
 3. Extract the downloaded source code and open the folder.
 4. Run the "build-installer.sh" script.
-5. Now you got a new folder, called "installer". Here you can find the install-timesync-{version}.sh and the ts-ressources-{version} archive.
-6. This files have to be in the same folder. Run the "install-timesync-{version}.sh" program to install or uninstall the program.
+5. Now you got a new folder, called "installer". Here you can find the timesync-manualsetup-{version}.tar.gz archive.
 
 
 ### Compatiblity
@@ -73,5 +70,5 @@ Program to sync the time with different (preset) servers and also a custom serve
 
 
 ## Website
-* See https://github.com/Palace4Software/timesync for updates and informations
+* See https://github.com/Palace4Software/timesync for updates and informations and source code
 * See https://github.com/Palace4Software/timesync/commits/main for changelog
