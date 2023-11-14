@@ -19,4 +19,6 @@ zip ts-ressources.zip timesync.desktop
 zip ts-ressources.zip icon.png
 
 mkdir installer
-mv ts-ressources.zip installer/ts-ressources-$version && cp install-timesync.sh installer/install-timesync-$version.sh
+mv ts-ressources.zip ts-ressources-$version && cp install-timesync.sh install-timesync-$version.sh
+
+tar -cvzf timesync-manualsetup-$version.tar.gz ts-ressources-$version install-timesync-$version.sh && mv timesync-manualsetup-$version.tar.gz installer/ && rm install-timesync-$version.sh ts-ressources-$version
