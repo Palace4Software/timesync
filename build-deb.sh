@@ -26,7 +26,7 @@ exec /usr/lib/timesync/timesync" > deb/usr/bin/timesync
 chmod +x deb/usr/lib/timesync/timesync
 chmod +x deb/usr/bin/timesync
 sudo chown -R root deb/
-chmod 755 deb/DEBIAN
+sudo chmod 755 deb/DEBIAN
 
 # build
 dpkg-deb --build -Zxz deb
