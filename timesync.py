@@ -156,7 +156,8 @@ def synccustom():
     gui.Label(GUI2).pack(expand=True, fill="x")
     syncbutton = gui.Button(GUI2, text="Sync", command=syncstart)
     syncbutton.pack()
-    if language == "2": #language for button
+    if language == "2": #language subwindow
+        GUI2.title("Manuell")
         syncbutton.config(text="Syncronisieren")
     gui.Label(GUI2).pack(expand=True, fill="x")
     print("Buttons and spaces created.")
