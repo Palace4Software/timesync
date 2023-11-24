@@ -10,13 +10,13 @@ Program to sync the time with different (preset) servers and also a custom serve
 2. Open the Downloads-folder with your file manager.
 3. Double click the downloaded .deb -file and open it with your software manager (or graphical package installation program (like gdebi, ...))
 4. Install the application.
-    - _You have to replace "{version}" with the version you downloaded (for example "install-timesync-1.1.0.sh")._
+    - _You have to replace "{version}" with the version you downloaded (for example "timesync-1.1.0.deb")._
 
 #### Method 2 - .deb -Package (via terminal)
 1. Download "timesync-{version}.deb" from the Releases-section.
 2. Start the terminal.
 3. Type ``` sudo apt install /Downloads/timesync-{version}.deb ```
-    - _You have to replace "{version}" with the version you downloaded (for example "install-timesync-1.1.0.sh")._
+    - _You have to replace "{version}" with the version you downloaded (for example "timesync-1.1.0.deb")._
 
 #### Method 3 - Manual installation
 1. Download "timesync-manualsetup-{version}.tar.gz" from the Releases-section.
@@ -24,7 +24,7 @@ Program to sync the time with different (preset) servers and also a custom serve
 3. Extract the archive (``` tar -xzvf ./Downloads/timesync-manualsetup-{version}.tar.gz ```).
 4. Type ``` chmod +x ./install-timesync-{version}.sh ``` and press enter.
 5. Type ``` sudo ./install-timesync-{version}.sh ``` and follow the installation instructions.
-    - _You have to replace "{version}" with the version you downloaded (for example "install-timesync-1.1.0.s
+    - _You have to replace "{version}" with the version you downloaded (for example "install-timesync-1.1.0.sh")_
 
 
 ### How to start the application?
@@ -66,7 +66,7 @@ Program to sync the time with different (preset) servers and also a custom serve
 
 ### Compatiblity
 * This program (also the manual installer) is written for Debian GNU/Linux or Linux distributions based on it.
-* You need python3 and python3-tk (Tkinter) in version 3.10.0 (or higher) to run the program. Also the packages python3-platformdirs, pkexec, wget and sed. These are downloaded automatically during installation.
+* You need python3 and python3-tk (Tkinter) in version 3.10.0 (or higher) to run the program. Also the packages python3-platformdirs, pkexec, wget, sed and fonts-liberation2. These are downloaded automatically during installation.
 
 
 ## Website
