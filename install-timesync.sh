@@ -2,7 +2,7 @@
 ### Setup for timesync program ###
 
 # release-version (important!)
-ver="2.0.2"
+ver="2.0.3"
 
 if [[ $EUID -ne 0 ]]; then
    echo "The installation/uninstallation must be run as root. Aborting..." 
