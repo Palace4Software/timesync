@@ -5,7 +5,6 @@
 print("Import functions...")
 import os
 import tkinter as gui
-from tkinter import ttk
 from tkinter import messagebox
 import subprocess
 import platformdirs
@@ -36,7 +35,7 @@ if not configexist == True:
         print("", file=langcfg)
 language = open(config_path + "/language.cfg", "r")
 language = language.readline()
-language = language.replace("\n", "") # remove empty line(s) from the variable, because "if language == 0 [...]" does not work otherwise
+language = language.replace("\n", "") # remove empty line(s) from the variable, because "if language == [...]" does not work otherwise
 if language == "None":
     languagesetup.main()
 elif language == "EN":
@@ -178,7 +177,7 @@ spaceholder1.pack(expand=True, fill="both")
 
 #Headline (Title)
 print("Set headline...")
-headline = gui.Label(GUI, text="Date & Time Syncronizer")
+headline = gui.Label(GUI, text="Date & Time Syncronizer", font=("Liberation Serif", 13))
 headline.pack(expand=True, fill="x")
 
 #Space between headline and buttons
@@ -188,15 +187,15 @@ spaceholder2.pack(expand=True, fill="both")
 
 #Buttons
 print("Initalize buttons...")
-button1 = ttk.Button(GUI, text="Sync with Debian.org", command=syncdebian)
+button1 = gui.Button(GUI, text="Sync with Debian.org", command=syncdebian, bg="#cc0000", fg="#ffffff")
 button1.pack()
-button2 = ttk.Button(GUI, text="Sync with Linux (Kernel.org)", command=synclinux)
+button2 = gui.Button(GUI, text="Sync with Linux (Kernel.org)", command=synclinux, bg="#1a1a00", fg="#ffffff")
 button2.pack()
-button3 = ttk.Button(GUI, text="Sync with DuckDuckGo.com", command=syncduck)
+button3 = gui.Button(GUI, text="Sync with DuckDuckGo.com", command=syncduck, bg="#ff8000", fg="#000000")
 button3.pack()
-button4 = ttk.Button(GUI, text="Sync with Google.com", command=syncgoogle)
+button4 = gui.Button(GUI, text="Sync with Google.com", command=syncgoogle, bg="#009933", fg="#000000")
 button4.pack()
-button5 = ttk.Button(GUI, text="Sync with custom", command=synccustom)
+button5 = gui.Button(GUI, text="Sync with custom", command=synccustom, bg="#9999ff", fg="#000000")
 button5.pack()
 
 #Space between buttons and subbuttons
@@ -206,13 +205,13 @@ spaceholder3.pack(expand=True, fill="both")
 
 #Buttons (Exit, About)
 print("Set About button...")
-button7 = ttk.Button(GUI, text="About", command=aboutprogram)
+button7 = gui.Button(GUI, text="About", command=aboutprogram)
 button7.pack(side="left")
 print("Set Exit button...") #must be set before button7
-button8 = ttk.Button(GUI, text="Exit", command=exitprogram)
+button8 = gui.Button(GUI, text="Exit", command=exitprogram)
 button8.pack(side="right")
 print("Set Change language button...")
-button6 = ttk.Button(GUI, text="Change language", command=changelang)
+button6 = gui.Button(GUI, text="Change language", command=changelang)
 button6.pack(side="top")
 
 #Space between subbuttons and end
@@ -238,7 +237,7 @@ if language == "2":
     button5.config(text="Manuell syncronisieren")
 
     button6.config(text="Sprache ändern")
-    button7.config(text="Über")
+    button7.config(text="   Über   ")
     button8.config(text="Beenden")
 
 if language != "1":
