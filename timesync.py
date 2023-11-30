@@ -6,6 +6,7 @@ print("Import functions...")
 import os
 import tkinter as gui
 from tkinter import messagebox
+from tkinter import PhotoImage
 import subprocess
 import platformdirs
 import languagesetup # import local file "languagesetup.py"
@@ -178,7 +179,9 @@ spaceholder1.pack(expand=True, fill="both")
 
 #Headline (Title)
 print("Set headline...")
-headline = gui.Label(GUI, text="Date & Time Syncronizer", font=("Liberation Serif", 13))
+img_path = str(run_path + "/images/icon.png")
+img = gui.PhotoImage(file=img_path).subsample(32)
+headline = gui.Label(GUI, text="Date & Time Syncronizer", font=("Liberation Serif", 13), image=img, compound="right")
 headline.pack(expand=True, fill="x")
 
 #Space between headline and buttons
