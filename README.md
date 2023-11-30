@@ -18,14 +18,6 @@ Program to sync the time with different (preset) servers and also a custom serve
 3. Type ``` sudo apt install /Downloads/timesync-{version}.deb ```
     - _You have to replace "{version}" with the version you downloaded (for example "timesync-1.1.0.deb")._
 
-#### Method 3 - Manual installation
-1. Download "timesync-manualsetup-{version}.tar.gz" from the Releases-section.
-2. Start the terminal.
-3. Extract the archive (``` tar -xzvf ./Downloads/timesync-manualsetup-{version}.tar.gz ```).
-4. Type ``` chmod +x ./install-timesync-{version}.sh ``` and press enter.
-5. Type ``` sudo ./install-timesync-{version}.sh ``` and follow the installation instructions.
-    - _You have to replace "{version}" with the version you downloaded (for example "install-timesync-1.1.0.sh")_
-
 
 ### How to start the application?
 * In your applications (e.g. GNOME application list, Start menu, or Mint menu), there should be a new application called "Time and Date Synchronization". You can launch it by clicking on it.
@@ -49,22 +41,15 @@ Program to sync the time with different (preset) servers and also a custom serve
 
 
 ## Building
-### How to build the installer?
-#### Method 1 - Build the .deb -package
+### How to build the .deb -Package
 1. Download the timesync repository (see website below) and extract all the files. (Maybe you should download the source-code from the release-section, because the raw repository can contain unstable features and code.)
 2. Extract the downloaded source code and open the folder.
 3. Run the "build-deb.sh" script.
 4. Now you got a new folder, called "installer". Here you can find the builded .deb -file. Just run it to install the application.
 
-#### Method 2 - Build the Manual installer
-1. Download the timesync repository (see website below) and extract all the files. (Maybe you should download the source-code from the release-section, because the raw repository can contain unstable features and code.)
-2. Install the packages "zip" and "cat" (with ``` sudo apt install zip tar cat ```) _The build-installer.sh will **not** download anything by itself!_
-3. Extract the downloaded source code and open the folder.
-4. Run the "build-installer.sh" script.
-5. Now you got a new folder, called "installer". Here you can find the timesync-manualsetup-{version}.tar.gz archive.
 
 
-### Compatiblity
+## Compatiblity
 * This program (also the manual installer) is written for Debian GNU/Linux or Linux distributions based on it.
 * You need python3 and python3-tk (Tkinter) in version 3.10.0 (or higher) to run the program. Also the packages python3-platformdirs, pkexec, wget, sed and fonts-liberation2. These are downloaded automatically during installation.
 
