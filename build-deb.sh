@@ -8,12 +8,13 @@ version=$(cat version.txt)
 mkdir -p deb/usr/lib/timesync/
 cp timesync.py deb/usr/lib/timesync/timesync
 cp languagesetup.py deb/usr/lib/timesync/
+cp images/icon.png deb/usr/lib/timesync/images/
 cp version.txt deb/usr/lib/timesync/
 cp LICENSE deb/usr/lib/timesync/
 cp README.md deb/usr/lib/timesync/
 
 mkdir -p deb/usr/share/icons/hicolor/256x256/apps/
-cp icon.png deb/usr/share/icons/hicolor/256x256/apps/timesync.png
+cp images/icon.png deb/usr/share/icons/hicolor/256x256/apps/timesync.png
 
 mkdir -p deb/usr/share/applications/
 cp timesync.desktop deb/usr/share/applications/
