@@ -6,7 +6,7 @@ Program to sync the time with different (preset) servers and also a custom serve
 ## The application
 ### How to install the application?
 #### Method 1 - .deb -Package
-1. Download "timesync-{version}.deb" from the Releases-section.
+1. Download "timesync-{version}.deb" from the [Releases-section](https://github.com/Palace4Software/timesync/releases).
 2. Open the Downloads-folder with your file manager.
 3. Double click the downloaded .deb -file and open it with your software manager (or graphical package installation program (like gdebi, ...))
 4. Install the application.
@@ -34,7 +34,7 @@ Program to sync the time with different (preset) servers and also a custom serve
 #### Custom server
 1. Start the application by clicking on the entry in your menu.
 2. Press on "Sync with custom".
-3. Enter the server or website you'd like to sync with (e.g. opensource.org) and click the "Sync" button. *(Not every website/server allows time synchronization! If it is not possible to sync, the time is automatically set to 0 o'clock.)*
+3. Enter the server or website you'd like to sync with (e.g. opensource.org) and click the "Sync" button. You can also type in IP-Adresses. *(Not every website/server allows time synchronization! If it is not possible to sync, the time is automatically set to 0 o'clock.)*
 4. Enter your password (or the root password) and press enter.
 5. Time and date should now be synced.
 
