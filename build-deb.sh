@@ -5,7 +5,7 @@
 version=$(cat version.txt)
 
 # move files to deb building folder
-mkdir -p deb/usr/lib/timesync/
+mkdir -p deb/usr/lib/timesync/images/
 cp timesync.py deb/usr/lib/timesync/timesync
 cp languagesetup.py deb/usr/lib/timesync/
 cp images/icon.png deb/usr/lib/timesync/images/
