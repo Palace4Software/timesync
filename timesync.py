@@ -10,6 +10,7 @@ from tkinter import PhotoImage
 import subprocess
 import platformdirs
 import languagesetup # import local file "languagesetup.py"
+import webbrowser
 print("Import finished.")
 
 #Get run_path and config-folder (create config-folder if not exist)
@@ -63,6 +64,9 @@ def aboutprogram():
     if language == "2":
         showinfolines = ["Datum & Uhrzeit Syncronisierer", "Entwickelt von Palace4Software", "", showversion, "", "", "Diese Software unterliegt der MIT-Lizenz."]
         messagebox.showinfo("Über das Programm", "\n".join(showinfolines))
+
+def openweb(url):
+    webbrowser.open(url)
 
 def syncfin(successfulchecker): #Messagebox after syncronization (with multilanguagesupport)
     if successfulchecker.returncode == 0:
@@ -168,7 +172,7 @@ print("Syncronization commands loaded.")
 print("Initalize main program...")
 GUI = gui.Tk()
 GUI.title("Date/Time Syncronizer")
-GUI.geometry("300x375")
+GUI.geometry("300x400")
 GUI.resizable(width=False, height=False)
 
 ## Setup background and button
@@ -179,15 +183,15 @@ spaceholder1.pack(expand=True, fill="both")
 
 #Headline (Title)
 print("Set headline...")
-img_path = str(run_path + "/images/icon.png")
-img = gui.PhotoImage(file=img_path).subsample(32)
-headline = gui.Label(GUI, text="Date & Time Syncronizer", font=("Liberation Serif", 13), image=img, compound="right")
+headline = gui.Label(GUI, text="Date & Time Syncronizer", font=("Liberation Serif", 13))
 headline.pack(expand=True, fill="x")
 
-#Space between headline and buttons
-print("Set space between headline and buttons")
-spaceholder2 = gui.Label(GUI)
-spaceholder2.pack(expand=True, fill="both")
+#logo and space between headline and buttons
+print("Load logo...")
+img_path = str(run_path + "/images/icon.png")
+img = gui.PhotoImage(file=img_path).subsample(20)
+imageline = gui.Button(GUI, image=img, compound="center", command=lambda: openweb("https://github.com/Palace4Software/timesync"), cursor="hand2")
+imageline.pack(pady=15)
 
 #Buttons
 print("Initalize buttons...")
@@ -209,10 +213,10 @@ spaceholder3.pack(expand=True, fill="both")
 
 #Buttons (Exit, About)
 print("Set About button...")
-button7 = gui.Button(GUI, text="About", command=aboutprogram)
+button7 = gui.Button(GUI, text=" About ", command=aboutprogram)
 button7.pack(side="left")
 print("Set Exit button...") #must be set before button7
-button8 = gui.Button(GUI, text="Exit", command=exitprogram)
+button8 = gui.Button(GUI, text="  Exit  ", command=exitprogram)
 button8.pack(side="right")
 print("Set Change language button...")
 button6 = gui.Button(GUI, text="Change language", command=changelang)
