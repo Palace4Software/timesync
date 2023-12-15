@@ -1,3 +1,5 @@
+**Project moved to [CodeBerg](https://codeberg.org/Palace4Software/timesync).**
+
 # timesync
 Program to sync the time with different (preset) servers and also a custom server function. Written for Debian GNU/Linux and systems they based on it. 
 
